@@ -11,6 +11,7 @@
           :list="arrBacklog"
           @start="startDrag"
           @end="stopDrag"
+          ghost-class="ghost"
           group="a"
         >
           <div v-for="element in arrBacklog" :key="element.name" class="task">
@@ -18,7 +19,7 @@
           </div>
         </draggable>
       </div>
-      <div class="board board-in-progress">
+      <div class="board board-in-progress" group="a">
         <h3>InProgress</h3>
         <draggable
           :list="arrInProgress"
@@ -61,7 +62,7 @@
 </template>
 
 <script>
-import draggable from "vuedraggable";
+import draggable from "components/rs-draggable.vue";
 
 export default {
   name: "App",
@@ -81,12 +82,6 @@ export default {
     };
   },
   methods: {
-    stopDrag() {
-      console.log("stopDrag");
-    },
-    startDrag() {
-      console.log("startDrag");
-    },
     add() {
       if (this.newTask) {
         this.arrBacklog.push({ name: this.newTask });
@@ -105,6 +100,10 @@ export default {
 
 body {
   margin: 0;
+}
+
+.ghost {
+  opacity: 0.5;
 }
 
 .container {
@@ -152,7 +151,6 @@ body {
   padding: 20px;
   margin: 0 10px;
   color: black;
-  height: fit-content;
 }
 
 .board h3 {

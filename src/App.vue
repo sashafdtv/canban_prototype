@@ -1,88 +1,39 @@
 <template>
   <div class="container">
-    <div class="controls">
-      <input v-model="newTask" placeholder="Enter Task" @keyup.enter="add" />
-    </div>
+    <controls @create-task="createTask" />
 
     <div class="boards">
-      <div class="board board-backlog">
-        <h3>Backlog</h3>
-        <draggable
-          :list="arrBacklog"
-          @start="startDrag"
-          @end="stopDrag"
-          ghost-class="ghost"
-          group="a"
-        >
-          <div v-for="element in arrBacklog" :key="element.name" class="task">
-            {{ element.name }}
-          </div>
-        </draggable>
-      </div>
-      <div class="board board-in-progress" group="a">
-        <h3>InProgress</h3>
-        <draggable
-          :list="arrInProgress"
-          @start="startDrag"
-          @end="stopDrag"
-          group="a"
-        >
-          <div
-            v-for="element in arrInProgress"
-            :key="element.name"
-            class="task"
-          >
-            {{ element.name }}
-          </div>
-        </draggable>
-      </div>
-      <div class="board board-tested">
-        <h3>Tested</h3>
-        <draggable
-          :list="arrTested"
-          @start="startDrag"
-          @end="stopDrag"
-          group="a"
-        >
-          <div v-for="element in arrTested" :key="element.name" class="task">
-            {{ element.name }}
-          </div>
-        </draggable>
-      </div>
-      <div class="board board-done">
-        <h3>Done</h3>
-        <draggable :list="arrDone" @start="startDrag" @end="stopDrag" group="a">
-          <div v-for="element in arrDone" :key="element.name" class="task">
-            {{ element.name }}
-          </div>
-        </draggable>
-      </div>
+      <board
+        v-for="(board, index) in boards"
+        :key="board.name"
+        v-model="boards[index]"
+      >
+        <card
+          v-for="items in board.items"
+          :key="items.name"
+          :title="items.name"
+        />
+      </board>
     </div>
   </div>
 </template>
 
 <script>
-import draggable from "components/rs-draggable.vue";
+import Controls from "./components/Controls.vue";
+import Board from "./components/Board.vue";
+import Card from "./components/Card";
+import { BOARDS } from "./const";
 
 export default {
   name: "App",
-  components: { draggable },
+  components: { Controls, Board, Card },
   data() {
     return {
-      newTask: "",
-      arrBacklog: [
-        { name: "Code SignPage" },
-        { name: "Test Dashboard" },
-        { name: "Style Registration" },
-        { name: "Help with Designs" },
-      ],
-      arrInProgress: [{ name: "Code SignPage" }],
-      arrTested: [],
-      arrDone: [],
+      boards: BOARDS,
     };
   },
   methods: {
-    add() {
+    createTask() {
       if (this.newTask) {
         this.arrBacklog.push({ name: this.newTask });
         this.newTask;
@@ -93,6 +44,9 @@ export default {
 </script>
 
 <style>
+.flip-list-move {
+  transition: all 0.5s;
+}
 * {
   box-sizing: border-box;
   font-family: "SF Pro Display";
@@ -108,21 +62,6 @@ body {
 
 .container {
   width: 100%;
-}
-
-.controls {
-  padding: 30px;
-}
-
-.controls input {
-  width: 100%;
-  border: 2px solid rgba(184, 189, 196, 0.71);
-  box-shadow: none;
-  outline: none;
-  color: rgba(109, 112, 116, 0.71);
-  outline: none;
-  border-radius: 15px;
-  padding: 10px;
 }
 
 .boards {
@@ -146,11 +85,12 @@ body {
 }
 
 .board {
-  min-width: 200px;
+  min-width: 300px;
   border-radius: 20px;
   padding: 20px;
   margin: 0 10px;
   color: black;
+  transition: height 1s;
 }
 
 .board h3 {
@@ -162,6 +102,9 @@ body {
   margin: 10px 0;
   padding: 20px 10px;
   border-radius: 5px;
+}
+.tasks {
+  min-height: 300px;
 }
 
 .controls input::placeholder {

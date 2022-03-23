@@ -68,34 +68,22 @@ body {
   display: flex;
   margin-top: 30px;
   overflow: scroll;
+  padding: 0 20px;
   padding-bottom: 30px;
 }
 
-.board-backlog {
-  background-color: #ffd858;
-}
-.board-in-progress {
-  background-color: #fa8576;
-}
-.board-tested {
-  background-color: #a2d8ef;
-}
-.board-done {
-  background-color: #a2d859;
-}
-
-.board {
-  min-width: 300px;
-  border-radius: 20px;
-  padding: 20px;
-  margin: 0 10px;
-  color: black;
-  transition: height 1s;
-}
-
-.board h3 {
-  text-align: center;
-}
+/*.board-backlog {*/
+/*  background-color: #ffd858;*/
+/*}*/
+/*.board-in-progress {*/
+/*  background-color: #fa8576;*/
+/*}*/
+/*.board-tested {*/
+/*  background-color: #a2d8ef;*/
+/*}*/
+/*.board-done {*/
+/*  background-color: #a2d859;*/
+/*}*/
 
 .task {
   background-color: white;

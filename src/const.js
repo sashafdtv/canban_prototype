@@ -1,26 +1,26 @@
 export const BOARDS = [
   {
-    name: "Backlog",
+    name: "Новый",
     items: [
-      { name: "Я дагестанец" },
-      { name: "Я русский" },
-      { name: "Я чеченец" },
-      { name: "Я ингуш" },
+      { name: "Карточка 1" },
+      { name: "Карточка 2" },
+      { name: "Карточка 3" },
+      { name: "Карточка 4" },
     ],
     color: "#ffd858",
   },
   {
-    name: "Progress",
-    items: [{ name: "Я татарин" }, { name: "Я еврей" }],
+    name: "В работе",
+    items: [{ name: "Карточка 5" }, { name: "Карточка 6" }],
     color: "#fa8576",
   },
   {
-    name: "Tested",
+    name: "Оплачен",
     items: [],
     color: "#a2d8ef",
   },
   {
-    name: "Done",
+    name: "Отменен",
     items: [],
     color: "#a2d859",
   },

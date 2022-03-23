@@ -1,18 +1,33 @@
 <template>
-  <div class="board" :style="{ backgroundColor: value.color }">
+  <div class="board">
     <!--  Title  -->
-    <h3>{{ value.name }}</h3>
+    <div
+      class="header-board"
+      :style="{
+        borderBottom: '3px solid ' + value.color,
+      }"
+    >
+      <div class="background-wrapper">
+        <h3>{{ value.name }}</h3>
+      </div>
+    </div>
 
     <!--  Items && Draggable wrapper  -->
-    <draggable
-      :list="value.items"
-      v-bind="draggableOptions"
-      class="tasks"
-      ghost-class="ghost"
-      group="board"
-    >
-      <slot />
-    </draggable>
+
+    <div class="body-board">
+      <draggable
+        :list="value.items"
+        v-bind="draggableOptions"
+        class="tasks"
+        ghost-class="ghost"
+        group="board"
+      >
+        <slot />
+      </draggable>
+    </div>
+    <!--    <div class="footer-board">-->
+    <!--      <div class="add-new-task-btn"></div>-->
+    <!--    </div>-->
   </div>
 </template>
 
@@ -39,4 +54,54 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+h3 {
+  font-size: 16px;
+}
+
+.header-board {
+  padding: 20px 0 0 0;
+  background-color: white;
+  border-bottom: 3px solid #ffd858;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.body-board {
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+.board {
+  min-width: 300px;
+  border-radius: 10px;
+  margin: 0 10px;
+  padding-bottom: 20px;
+  color: black;
+  transition: height 1s;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  border: 1px solid rgba(191, 186, 199, 0.67);
+  background-color: #fafafa;
+  position: relative;
+}
+
+.board h3 {
+  text-align: center;
+}
+
+.footer-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  position: relative;
+  bottom: 0;
+}
+
+.add-new-task-btn {
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  background-color: blue;
+}
+</style>

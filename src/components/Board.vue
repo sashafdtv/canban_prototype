@@ -4,10 +4,13 @@
     <div
       class="header-board"
       :style="{
-        borderBottom: '3px solid ' + value.color,
+        borderBottom: '3px solid rgb(' + mainColorRGB + ')',
       }"
     >
-      <div class="background-wrapper">
+      <div
+        class="background-wrapper"
+        :style="{ background: 'rgba(' + additionalColorRGBA + ')' }"
+      >
         <h3>{{ value.name }}</h3>
       </div>
     </div>
@@ -40,6 +43,14 @@ export default {
   components: {
     draggable,
   },
+  computed: {
+    mainColorRGB() {
+      return this.value.colorRGB.join(",");
+    },
+    additionalColorRGBA() {
+      return this.value.colorRGB.join(",") + ",0.5";
+    },
+  },
   data() {
     return {
       defaultColor: DEFAULT_COLOR,
@@ -59,8 +70,13 @@ h3 {
   font-size: 16px;
 }
 
+.background-wrapper {
+  padding: 20px 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
 .header-board {
-  padding: 20px 0 0 0;
   background-color: white;
   border-bottom: 3px solid #ffd858;
   border-top-left-radius: 10px;
@@ -87,6 +103,7 @@ h3 {
 
 .board h3 {
   text-align: center;
+  margin: 0;
 }
 
 .footer-board {

@@ -72,19 +72,6 @@ body {
   padding-bottom: 30px;
 }
 
-/*.board-backlog {*/
-/*  background-color: #ffd858;*/
-/*}*/
-/*.board-in-progress {*/
-/*  background-color: #fa8576;*/
-/*}*/
-/*.board-tested {*/
-/*  background-color: #a2d8ef;*/
-/*}*/
-/*.board-done {*/
-/*  background-color: #a2d859;*/
-/*}*/
-
 .task {
   background-color: white;
   margin: 10px 0;

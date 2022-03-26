@@ -7,24 +7,22 @@ export const BOARDS = [
       { name: "Карточка 3" },
       { name: "Карточка 4" },
     ],
-    colorRGB: [255, 216, 88],
+    color: "#F8DD6F",
   },
   {
     name: "В работе",
     items: [{ name: "Карточка 5" }, { name: "Карточка 6" }],
-    // colorRGB: [255, 227, 132],
-    colorRGB: [0, 132, 212],
+    color: "#4B8ED8",
   },
   {
     name: "Оплачен",
     items: [],
-    // colorRGB: [162, 216, 239],
-    colorRGB: [102, 196, 0],
+    color: "#90C82E",
   },
   {
     name: "Отменен",
     items: [],
-    colorRGB: [255, 79, 0],
+    color: "#E66720",
   },
 ];
 

@@ -1,7 +1,5 @@
 <template>
   <div class="container">
-    <controls @create-task="createTask" />
-
     <div class="boards">
       <board
         v-for="(board, index) in boards"
@@ -19,14 +17,13 @@
 </template>
 
 <script>
-import Controls from "./components/Controls.vue";
 import Board from "./components/Board.vue";
 import Card from "./components/Card";
 import { BOARDS } from "./const";
 
 export default {
   name: "App",
-  components: { Controls, Board, Card },
+  components: { Board, Card },
   data() {
     return {
       boards: BOARDS,
@@ -54,6 +51,8 @@ export default {
 
 body {
   margin: 0;
+  background-color: #f1f2f3;
+  padding: 0;
 }
 
 .ghost {
@@ -61,7 +60,15 @@ body {
 }
 
 .container {
-  width: 100%;
+  /*width: 100%;*/
+  /* remove */
+  height: 100vh;
+  padding: 0;
+  width: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .boards {

@@ -1,28 +1,28 @@
 export const BOARDS = [
   {
-    name: "Новый",
+    name: "Новые",
     items: [
       { name: "Карточка 1" },
       { name: "Карточка 2" },
       { name: "Карточка 3" },
       { name: "Карточка 4" },
     ],
-    color: "#F8DD6F",
+    color: "#FFC93C",
   },
   {
     name: "В работе",
     items: [{ name: "Карточка 5" }, { name: "Карточка 6" }],
-    color: "#4B8ED8",
+    color: "#0052B3",
   },
   {
     name: "Оплачен",
     items: [],
-    color: "#90C82E",
+    color: "#00A161",
   },
   {
     name: "Отменен",
     items: [],
-    color: "#E66720",
+    color: "#FF4F01",
   },
 ];
 

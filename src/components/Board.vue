@@ -1,7 +1,10 @@
 <template>
   <div class="board">
     <div class="header-board">
-      <div class="background-wrapper" :style="{ background: this.value.color }">
+      <div
+        class="background-wrapper"
+        :style="{ borderBottom: '1px solid' + this.value.color }"
+      >
         <h3>{{ value.name }}</h3>
       </div>
     </div>

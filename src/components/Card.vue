@@ -1,6 +1,5 @@
 <template>
-  <div class="task">
-    <!--    {{ title }}-->
+  <div class="task" :class="boardClass" :data-board="boardClass">
     <div class="plug" />
     <div class="flex">
       <div class="plug" />
@@ -18,14 +17,19 @@ export default {
   name: "Card",
   props: {
     title: String,
+    boardClass: String,
   },
 };
 </script>
 
 <style scoped>
 .task {
-  border: 1px solid #d4d1d9;
   font-size: 12px;
+  background-color: white;
+  margin: 10px 0;
+  padding: 20px 10px;
+  border-bottom: 1px solid #d4d1d9;
+  transition: background 10s ease-in-out;
 }
 
 .plug {
@@ -36,6 +40,10 @@ export default {
   flex: 1;
   margin: 5px;
 }
+
+/*.task:active .plug {*/
+/*  background: #2789ff;*/
+/*}*/
 
 .flex {
   display: flex;

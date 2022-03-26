@@ -3,7 +3,7 @@
     <div class="header-board">
       <div
         class="background-wrapper"
-        :style="{ borderBottom: '1px solid' + this.value.color }"
+        :style="{ borderBottom: '3px solid' + this.value.color }"
       >
         <h3>{{ value.name }}</h3>
       </div>
@@ -12,6 +12,8 @@
     <div class="body-board">
       <draggable
         :list="value.items"
+        :data-key="value.class"
+        :move="moveHandler"
         v-bind="draggableOptions"
         class="tasks"
         ghost-class="ghost"
@@ -46,22 +48,40 @@ export default {
       type: Object,
     },
   },
+  methods: {
+    moveHandler(e) {
+      const cardElement = e.dragged;
+      const previewBoard = cardElement.dataset.board;
+      console.log("get ", e.from.getAttribute("data-key"));
+      const nextBoard = e.to.getAttribute("data-key");
+
+      if (previewBoard !== nextBoard) {
+        cardElement.classList.remove(previewBoard);
+        cardElement.classList.add(nextBoard);
+        console.log("set ", cardElement.dataset.board);
+        cardElement.dataset.board = nextBoard;
+      }
+    },
+  },
 };
 </script>
 
 <style scoped>
+.tasks {
+  min-height: 1000px;
+}
 h3 {
   font-size: 16px;
 }
 
 .background-wrapper {
-  padding: 20px 0;
+  padding: 20px;
+  margin: 0 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
 .header-board {
-  border-bottom: 1px solid rgba(191, 186, 199, 0.67);
   background-color: white;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -75,6 +95,7 @@ h3 {
 
 .board {
   min-width: 300px;
+  min-hight: 300px;
   border-radius: 10px;
   margin: 0 10px;
   padding-bottom: 20px;

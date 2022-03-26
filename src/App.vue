@@ -7,9 +7,10 @@
         v-model="boards[index]"
       >
         <card
-          v-for="items in board.items"
-          :key="items.name"
-          :title="items.name"
+          v-for="item in board.items"
+          :key="item.name"
+          :title="item.name"
+          :board-class="board.class"
         />
       </board>
     </div>
@@ -24,6 +25,9 @@ import { BOARDS } from "./const";
 export default {
   name: "App",
   components: { Board, Card },
+  mounted() {
+    console.log(this.boards);
+  },
   data() {
     return {
       boards: BOARDS,
@@ -56,16 +60,39 @@ body {
 }
 
 .ghost {
-  opacity: 0.5;
+  opacity: 0.1;
+  border-radius: 5px;
+  border-bottom: none;
+}
+
+.sortable-chosen .plug {
+  background: rgba(39, 137, 255, 0.4);
+}
+
+.ghost .plug {
+  background-color: white;
+  visibility: hidden;
+}
+
+.ghost.new {
+  background: #ffc93c;
+}
+
+.ghost.work {
+  background: #0052b3;
+}
+
+.ghost.done {
+  background: #00a161;
+}
+
+.ghost.close {
+  background: #ff4f01;
 }
 
 .container {
   /*width: 100%;*/
   /* remove */
-  height: 100vh;
-  padding: 0;
-  width: 100vh;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,16 +104,6 @@ body {
   overflow: scroll;
   padding: 0 20px;
   padding-bottom: 30px;
-}
-
-.task {
-  background-color: white;
-  margin: 10px 0;
-  padding: 20px 10px;
-  border-radius: 5px;
-}
-.tasks {
-  min-height: 300px;
 }
 
 .controls input::placeholder {

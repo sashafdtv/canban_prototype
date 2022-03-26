@@ -68,7 +68,7 @@ export default {
 
 <style scoped>
 .tasks {
-  min-height: 1000px;
+  min-height: 500px;
 }
 h3 {
   font-size: 16px;

@@ -66,7 +66,7 @@ body {
 }
 
 .sortable-chosen .plug {
-  background: rgba(39, 137, 255, 0.4);
+  background: rgba(39, 137, 255, 0.2);
 }
 
 .ghost .plug {
@@ -91,8 +91,6 @@ body {
 }
 
 .container {
-  /*width: 100%;*/
-  /* remove */
   display: flex;
   justify-content: center;
   align-items: center;

@@ -29,7 +29,6 @@ export default {
   margin: 10px 0;
   padding: 20px 10px;
   border-bottom: 1px solid #d4d1d9;
-  transition: background 10s ease-in-out;
 }
 
 .plug {

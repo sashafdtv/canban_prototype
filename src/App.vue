@@ -66,7 +66,7 @@ body {
 }
 
 .sortable-chosen .plug {
-  background: rgba(39, 137, 255, 0.2´);
+  background: rgba(39, 137, 255, 0.2);
 }
 
 .ghost .plug {

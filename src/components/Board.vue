@@ -5,7 +5,7 @@
         class="background-wrapper"
         :style="{ borderBottom: '3px solid' + this.value.color }"
       >
-        <h3>{{ value.name }}</h3>
+        <span>{{ value.name }}</span>
       </div>
     </div>
 
@@ -23,7 +23,7 @@
       </draggable>
     </div>
     <div class="footer-board">
-      <div class="add-new-task-btn"></div>
+      <!--      <div class="add-new-task-btn"></div>-->
     </div>
   </div>
 </template>
@@ -74,11 +74,12 @@ h3 {
   font-size: 16px;
 }
 
+/*TODO remove class*/
 .background-wrapper {
-  padding: 20px;
+  padding: 15px 0 7px 15px;
   margin: 0 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  /*border-top-left-radius: 10px;*/
+  /*border-top-right-radius: 10px;*/
 }
 
 .header-board {
@@ -87,15 +88,20 @@ h3 {
   border-top-right-radius: 10px;
 }
 
+.header-board span {
+  font-size: 14px;
+  font-weight: 700 !important;
+}
+
 .body-board {
-  padding: 20px;
+  padding: 5px 20px;
   padding-bottom: 0;
   margin-bottom: 10px;
 }
 
 .board {
-  min-width: 300px;
-  min-hight: 300px;
+  width: 300px;
+  min-hight: 680px;
   border-radius: 10px;
   margin: 0 10px;
   padding-bottom: 20px;

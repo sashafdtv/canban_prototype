@@ -13,7 +13,7 @@ export const BOARDS = [
   {
     name: "В работе",
     items: [{ name: "Карточка 5" }, { name: "Карточка 6" }],
-    color: "#0052B3",
+    color: "#0084D4",
     class: "work",
   },
   {

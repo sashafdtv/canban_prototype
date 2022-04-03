@@ -50,7 +50,9 @@ export default {
 }
 * {
   box-sizing: border-box;
-  font-family: "SF Pro Display";
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-weight: 400;
+  color: #495559;
 }
 
 body {
@@ -65,12 +67,20 @@ body {
   border-bottom: none;
 }
 
-.sortable-chosen .plug {
-  background: rgba(39, 137, 255, 0.2);
+.lead.sortable-chosen {
+  background: #eff6ff;
 }
 
-.ghost .plug {
-  background-color: white;
+/* TODO REMOVE AFTER LINK FA*/
+.lead.sortable-chosen .icon-plug {
+  background: #2589ff;
+}
+
+.lead.sortable-chosen .lead-info {
+  color: rgba(39, 137, 255, 0.2);
+}
+
+.ghost.lead * {
   visibility: hidden;
 }
 
